@@ -153,7 +153,7 @@ while ($row = mysqli_fetch_assoc($result_query)) {
   </div>
   <div class='card-body'>
   <h5 class='card-title mb-1'>Description: </h5>
-    <h5 class='card-text fw-sm ps-2'>$jobDesc</h5>
+    <h5 class='card-text fw-sm ps-2 text-secondary'>$jobDesc</h5>
     <h5 class='card-title mt-3 mb-1'>Contact Info: </h5>
     <p class='card-text fw-sm ps-2'>$contactInfo</p>
     <p class='card-text text-secondary'>Published Date: $timestamp</p>

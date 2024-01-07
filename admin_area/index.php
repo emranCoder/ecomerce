@@ -1,5 +1,5 @@
 <?php
-require('header.php')
+require('header.php');
 
 ?>
         <div class="container">
@@ -13,7 +13,7 @@ require('header.php')
                 <div class="me-5">
                     <a href="#"><img src="../images/admin.png" alt="" class="admin_image"></a>
                     <p class="text-center">Banglar_Rong_2.0</p>
-                    <button class="my-3 btn btn-danger w-100"><a href="" class="nav-link text-light my-1">Log Out</a></button>
+                    <button class="my-3 btn btn-danger w-100"><a href="destroySession.php?true=tt" class="nav-link text-light my-1">Log Out</a></button>
                 </div>
                 <div class="row gap-1 ml-5">
                 <button class="my-3 btn btn-primary col-md-2"><a href="all-orders.php" class="nav-link text-light  my-1">All orders</a></button>

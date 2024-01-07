@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2024 at 01:51 PM
+-- Generation Time: Jan 07, 2024 at 02:15 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -36,6 +36,13 @@ CREATE TABLE `admin` (
   `password` text NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_id`, `fName`, `lName`, `email`, `username`, `password`, `timestamp`) VALUES
+(1, 'admin', 'core', 'admin@mail.com', 'admin', '$2y$04$jeDR6y5.eKMWUc9iuv3W2eUL0ULVQQ.wL48KQlM.qKFgNAxXgeiWy', '2024-01-07 13:00:31');
 
 -- --------------------------------------------------------
 
@@ -131,7 +138,7 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`OrderID`, `OrderNumber`, `userID`, `orderStatus`, `addr`, `paymentMethod`, `productID`, `timestamp`, `paymentStatus`, `product_title`, `order_price`, `offer_rate`, `quantity`, `delibariedDate`) VALUES
 (1, 'Z4N0ZOMXtxhMFbzimuWO', 12, 0, 'Sylhet', 'bkash', '7', '2024-01-07 12:42:38', 0, 0, '1960', 2, 2, NULL),
-(2, 'Z4N0ZOMXtxhMFbzimuWO', 12, 0, 'Sylhet', 'bkash', '8', '2024-01-07 12:42:38', 0, 0, '8000', 0, 1, NULL),
+(2, 'Z4N0ZOMXtxhMFbzimuWO', 12, 1, 'Sylhet', 'bkash', '8', '2024-01-07 12:42:38', 1, 0, '8000', 0, 1, '2024-01-07 13:15:04'),
 (3, 'Z4N0ZOMXtxhMFbzimuWO', 12, 0, 'Sylhet', 'bkash', '11', '2024-01-07 12:42:38', 0, 0, '800', 0, 1, NULL);
 
 -- --------------------------------------------------------
@@ -205,7 +212,7 @@ INSERT INTO `users` (`id`, `fname`, `lname`, `username`, `email`, `password`, `v
 (8, 'leo', 'taha', 'taha10', 'taha@gmail.com', '$2y$04$f2L8p/jQsecdWEn1OhGbVOZBflDJAzhTIpNfoWtwh73CAXl8szXiC', 0, '', '2006-08-23', '', ''),
 (9, 'naeem', 'khannk', 'naeem123', 'naeem123@gmail', '$2y$04$.i3uR1uuzRtY/SuphUvLrujZp.r.cYgINxNymCemUNSa2Q4nC9zAW', 0, '', '2007-08-23', '', ''),
 (10, 'alok', 'naeem', 'alok111', 'alok111@gmai.com', '$2y$04$lP35wSo.r689TznU2XZqa.Qh6sXmtiZ0j1IEhvQyoKKODNMlNdOxO', 0, '', '2009-11-23', '', ''),
-(12, 'jhon', 'davide', 'jhon', 'emranalam645@gmail.com', '$2y$04$jeDR6y5.eKMWUc9iuv3W2eUL0ULVQQ.wL48KQlM.qKFgNAxXgeiWy', 1, '711879', '2007-01-24', '', '');
+(12, 'jhon', 'davide', 'jhon', 'emranalam645@gmail.com', '$2y$04$B2MTdFhVbse1.UP1DZCV.OmNO8Mkf3sLrxjats/YukkjfojOD21iK', 1, '711879', '2007-01-24', '', 'Sylhet Bangladesh');
 
 --
 -- Indexes for dumped tables
@@ -261,7 +268,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `brands`

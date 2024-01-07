@@ -1,5 +1,11 @@
 <?php
+session_start();
 include('../includes/connect.php');
+
+if(!(isset($_SESSION["admin_id"]) && isset($_SESSION["admin_name"])))
+{
+    header("location: login.php?login=false");
+}
 
 ?>
 
@@ -27,7 +33,7 @@ include('../includes/connect.php');
                 <nav class="navbar navbar-expand-lg">
                     <ul class="navbar-nav">
                          <li class="nav-item">
-                        <a href="index.php" class="nav-link">Welcome guest</a>
+                        <a href="index.php" class="nav-link">Welcome <?php echo $_SESSION['admin_name']?></a>
                         </li>
                     </ul>
                 </nav>

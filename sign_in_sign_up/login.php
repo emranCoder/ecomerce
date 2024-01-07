@@ -73,7 +73,7 @@
             }
             if(!empty($loginerror))
             {
-              echo '<p class="errmsg">Invalid login credentials, please try again...</p>';
+              echo '<p class="text-danger">Invalid login credentials, please try again...</p>';
             }
             ?>
         <form action="login_process.php" method="POST">
