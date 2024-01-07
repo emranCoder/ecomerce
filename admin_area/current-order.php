@@ -1,13 +1,31 @@
 <?php
-require('header.php')
+require('header.php');
 
+if(isset($_GET['id'])&& isset($_GET['status']) && $_GET['status']=='true')
+{
+    date_default_timezone_set("Asia/Dhaka");
+    global $con;
+    $id = $_GET['id'];
+    $active = $_GET['status'];
+    $deliveryDate = date("Y-m-d h:i:s");
+
+    $select_query = "UPDATE `orders` SET `orderStatus`=$active,`paymentStatus`=1,`delibariedDate`=Now() where `OrderID`=$id";
+    $result_query = mysqli_query($con, $select_query);
+        if($result_query)
+        {
+        header('Location: current-order.php?update=true');
+        }else
+        {
+        header('Location: current-order.php?update=false');
+        }
+
+
+}
 ?>
-
-
 <body class="bg-light">
     <div class="container-fluid mt-3">
 
-        <h1 class="text-center my-5">All Orders</h1>
+        <h1 class="text-center my-5">Recent Orders</h1>
 
         <table class="table table-striped ">
   <thead>
@@ -22,13 +40,12 @@ require('header.php')
       <th scope="col">Order Status</th>
       <th scope="col">Payment Method</th>
       <th scope="col">Order Date</th>
-      <th scope="col">Delivery Date</th>
     </tr>
   </thead>
   <tbody>
     <?php  global $con;
 
-    $select_query = "SELECT *,users.fname,users.phone_no, users.email,products.product_title FROM orders CROSS JOIN users,products WHERE users.id=orders.userID AND products.product_id=orders.productID";
+    $select_query = "SELECT *,users.fname,users.phone_no, users.email,products.product_title FROM orders CROSS JOIN users,products WHERE users.id=orders.userID AND products.product_id=orders.productID AND orders.orderStatus=0";
 
 $result_query = mysqli_query($con, $select_query);
 $no = 1;
@@ -59,15 +76,14 @@ while ($row = mysqli_fetch_assoc($result_query)) {
       <td><?php echo $email;?></td>
       <td><?php echo $addr ;?></td>
       <td ><?php if( $orderStatus){ ?>
-        <a class="btn btn-success" href="#" role="button">Ok</a>
+        <a class="btn btn-success" role="button">Ok</a>
     <?php }else{ ?>
-        <a class="btn btn-danger" href="#" role="button">Not</a>
+        <a class="btn btn-danger" href="current-order.php?id=<?php echo $OrderID;?>&status=true" role="button">Not</a>
     <?php } ?>
     
     </td>
       <td><?php echo $paymentMethod ;?></td>
       <td><?php echo $timestamp ;?></td>
-      <td><?php if($delibariedDate){echo date("d/m/y",strtotime($delibariedDate));}else{echo "<span class='text-danger text-bold'>Pending...</span>";} ?></td>
 
     </tr>
     <?php

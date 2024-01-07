@@ -41,7 +41,12 @@ include('functions/common_function.php');
         <li class="nav-item">
           <a class="nav-link" href="product_design/index.php">Products</a>
         </li>
-        
+        <li class="nav-item">
+          <a class="nav-link" href="special.php">Spacial Offers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="all-jobs.php">Career</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Contact</a>
         </li>
@@ -87,8 +92,8 @@ if(isset($_SESSION['login_email']))
         <li class="nav-item dropdown" >
           <a class="nav-link  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" href="#">Welcome<?php if(isset($_SESSION["name"])){echo '-'.$_SESSION["name"];}?></a>
           <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Profile</a></li>
-    <li><a class="dropdown-item" href="#">Setting</a></li>
+    <li><a class="dropdown-item" href="user-profile.php">Profile</a></li>
+    <li><a class="dropdown-item" href="change-pwd.php">Setting</a></li>
     <li><a class="dropdown-item" href="session/destroySession.php?true=tt">Log Out</a></li>
   </ul>
         </li>  

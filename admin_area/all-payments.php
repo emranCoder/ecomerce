@@ -7,7 +7,7 @@ require('header.php')
 <body class="bg-light">
     <div class="container-fluid mt-3">
 
-        <h1 class="text-center my-5">All Orders</h1>
+        <h1 class="text-center my-5">All Payments</h1>
 
         <table class="table table-striped ">
   <thead>
@@ -19,16 +19,15 @@ require('header.php')
       <th scope="col">Customer Phone No</th>
       <th scope="col">Customer Email</th>
       <th scope="col">Address</th>
-      <th scope="col">Order Status</th>
+      <th scope="col">Payed</th>
       <th scope="col">Payment Method</th>
-      <th scope="col">Order Date</th>
-      <th scope="col">Delivery Date</th>
+      <th scope="col">Payment Status</th>
     </tr>
   </thead>
   <tbody>
     <?php  global $con;
 
-    $select_query = "SELECT *,users.fname,users.phone_no, users.email,products.product_title FROM orders CROSS JOIN users,products WHERE users.id=orders.userID AND products.product_id=orders.productID";
+    $select_query = "SELECT *,users.fname,users.phone_no, users.email,products.product_title,products.product_price,products.offerRate FROM orders CROSS JOIN users,products WHERE users.id=orders.userID AND products.product_id=orders.productID";
 
 $result_query = mysqli_query($con, $select_query);
 $no = 1;
@@ -46,6 +45,8 @@ while ($row = mysqli_fetch_assoc($result_query)) {
     $fname = $row['fname'];
     $phone_no = $row['phone_no'];
     $email = $row['email'];
+    $product_price = $row['product_price'];
+    $offerRate = $row['offerRate'];
     $delibariedDate = $row['delibariedDate'];
     $timestamp = date("d/m/y",strtotime($timestamp));
     ?>
@@ -58,17 +59,15 @@ while ($row = mysqli_fetch_assoc($result_query)) {
       <td><?php echo $phone_no;?></td>
       <td><?php echo $email;?></td>
       <td><?php echo $addr ;?></td>
-      <td ><?php if( $orderStatus){ ?>
-        <a class="btn btn-success" href="#" role="button">Ok</a>
+      <td><?php echo $product_price-(($product_price*$offerRate)/100);?>$</td>
+      <td><?php echo $paymentMethod ;?></td>
+      <td ><?php if( $paymentMethod=='bkash'){ ?>
+        <a class="btn btn-success" href="#" role="button">Paid</a>
     <?php }else{ ?>
-        <a class="btn btn-danger" href="#" role="button">Not</a>
+        <a class="btn btn-danger" href="#" role="button">Unpaid</a>
     <?php } ?>
     
     </td>
-      <td><?php echo $paymentMethod ;?></td>
-      <td><?php echo $timestamp ;?></td>
-      <td><?php if($delibariedDate){echo date("d/m/y",strtotime($delibariedDate));}else{echo "<span class='text-danger text-bold'>Pending...</span>";} ?></td>
-
     </tr>
     <?php
 }?>

@@ -23,3 +23,7 @@
     width: 200px;
     object-fit: contain;
 }
+
+.navbar-nav .navHover:hover {
+    background: var(--bs-warning-bg-subtle) !important;
+}

@@ -1,4 +1,13 @@
-     
+    
+
+<!--last child-->
+
+<footer class="bg-light p-6 footer mx-auto mt-5 mb-0 pb-0 ">
+<h5 class="text-center">Created by</h5>
+<h6 class="text-center">Banglar_Rong_2.0</h6>
+<p class="text-center">Thanks for being with us.Dress Yourself in Banglar Rong</p>
+</footer>
+
 
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
@@ -79,9 +88,10 @@ function methodChoose2(){
   let method = document.getElementsByClassName('method-Choose');
 method[0]['checked']= false;
 }
-
   $(document).ready(function() {
-
+      $('#onkeyPress').keypress(()=>{
+        $('.submitBTN').removeClass('disabled');
+      })
 });
 
 

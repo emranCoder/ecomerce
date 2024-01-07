@@ -33,7 +33,8 @@ if($result_query)
 
 
 <div class="container">
-<h1 class="text-center">Product Edit</h1>
+<h1 class="text-center">Product <?php if(!(isset($_GET['view']) && $_GET['view']=='true'))
+    {echo "Edit";}else{echo "View";}?></h1>
 <div class="row">
 <?php 
 if(isset($_GET['id'])){
@@ -64,6 +65,10 @@ while ($row = mysqli_fetch_assoc($result_query)) {
   <div class="card-body">
     <h5 class="card-title"><?php echo $product_title;?></h5>
     <p class="card-text"><?php echo $product_description;?></p>
+    <?php
+    if(!(isset($_GET['view']) && $_GET['view']=='true'))
+    {
+    ?>
     <form action="product.php?id=<?php echo $product_id;?>" method="POST">
     <div class="mb-3 d-flex align-items-center gap-2">
         <label for="" class="form-label">Special Offer Rate: </label>
@@ -83,6 +88,20 @@ while ($row = mysqli_fetch_assoc($result_query)) {
     </div>
     <button type="submit" name='submit' class="btn btn-primary disabled submitBTN" >Go</button>
     </form>
+    <?php     }else{
+
+?>
+<p class='fs-5'>Price: <span><?php echo $product_price;?>$</span></p>
+<?php
+if(intval($offerRate)>0)
+{
+    ?>
+
+<p class='fs-5'>Discount: <span><?php echo $offerRate;?>%</span></p>
+<p class='fs-5'>After Discount Price: <span><?php echo $product_price-(($product_price*$offerRate)/100);?>$</span></p>
+<?php
+}
+    } ?>
   </div>
   </div>
   </div>

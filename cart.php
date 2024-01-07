@@ -79,20 +79,7 @@ foreach($quantity as $key => $val)
     </div>
 
 
-
-
-    <!--last Child-->
-    <div class="bg-light p-6">
-        
-        <h5 class="text-center">Created by</h5>
-        <h6 class="text-center">Banglar_Rong_2.0</h6>
-        <p class="text-center">Thanks for being with us.Dress Yourself in Banglar Rong</p>
-    </div>
-    </div>
-
-
-
-    
+ 
      
 
     
