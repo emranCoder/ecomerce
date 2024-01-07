@@ -1,4 +1,46 @@
 
+<?php
+   require_once("config.php");
+
+if((isset($_GET['username'])&& isset($_GET['otp']) && $_GET['otp']=='true')||isset($_POST['otpCheck'])){
+
+    if(isset($_POST['otpCheck'])){
+        $username = $_POST['username'];
+        $otpCode = $_POST['otpCode'];
+        
+        $checkQuery = "SELECT `verify_code` FROM `users` WHERE `email`='$username'";
+        $res = mysqli_query($dbConnect,$checkQuery);
+        if( $res){
+            $row = mysqli_fetch_assoc($res);
+            if($otpCode==$row['verify_code']){
+                $insertQuery = "UPDATE `users` SET `verify`=1 WHERE `email`='$username'";
+                $result = mysqli_query($dbConnect, $insertQuery);
+                if($result)
+                {
+                    header("location:login.php?true");
+                }else
+                {
+                    header('Location: delete-user.php?username='.$username);
+                }
+
+            }else
+            {
+                header('Location: delete-user.php?username='.$username);
+            }
+
+        }else
+        {
+            header('Location: delete-user.php?username='.$username);
+        }
+        
+       
+
+    }
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +89,6 @@
         
         $numberOfProducts=0;
         if(isset($_SESSION['NumberOfProducts'])){
-          session_start();
           $numberOfProducts= $_SESSION['NumberOfProducts'];
         }
         echo $numberOfProducts;
@@ -66,32 +107,14 @@
         </div>
         <div class="col-sm-4">
           <div class="login_form">
-            <?php
-            if(isset($_GET['loginerror']))
-            {
-              $loginerror = $_GET['loginerror'];
-            }
-            if(!empty($loginerror))
-            {
-              echo '<p class="errmsg">Invalid login credentials, please try again...</p>';
-            }
-            ?>
-        <form action="login_process.php" method="POST">
+        <form action="otp-send.php" method="POST">
   <div class="form-group">
-    <label for="exampleInputEmail1">Username or Email</label>
-    <input type="text" name="login_var" value="<?php if(!empty($loginerror)){echo $loginerror;}?>" class="form-control">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" name="password" class="form-control">
-  </div>
-  <button type="submit" name="sublogin" class="btn btn-primary form_btn my-2">Login</button>
+<h3 class='text-center my-2 mb-3'>Put Your OTP </h3>
+    <input onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="text" name="otpCode" placeholder="OTP" class="form-control text-center">
+    <input type="text" value='<?php echo $_GET['username']?>' name='username' hidden>
+  <button type="submit" name="otpCheck" class="btn btn-primary form_btn my-3">SUBMIT</button>
 </form>
 
-<p style="font-size: 12px; text-align:center; margin-top: 10px;"><a href="
-forgot-password.php" style="color: #00376b;"> Forgot Password? </a> </p>
-<br>
-<p class='text-center'>Don't have an account? <a class='text-dark' href="signup.php">Sign up</a> </p>
 </div>
 
         </div>
@@ -104,3 +127,11 @@ forgot-password.php" style="color: #00376b;"> Forgot Password? </a> </p>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </html>
+<?php 
+
+}else
+{
+    header('Location: signup.php?false');
+}
+
+?>

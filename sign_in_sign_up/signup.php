@@ -113,11 +113,10 @@ $_password_pattern = "/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]
 
         $insertQuery = "INSERT into `users`(`fname`, `lname`, `username`, `email`, `password`, `date`) values('$fname','$lname','$username','$email','$password','$date')";
         $result = mysqli_query($dbConnect, $insertQuery);
-        echo $fname;
 
         if($result)
         {
-            $done=2;
+            header('Location: ../send_email.php?username='.$username.'&email='.$email);
         }
         else
         {

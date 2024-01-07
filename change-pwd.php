@@ -2,13 +2,18 @@
 require('navbar.php');
 if(isset($_SESSION['login_email']))
 {
+  $id = $_SESSION['login_email'];
+  $query = "select * from users where id=$id ";
+  $res = mysqli_query($con,$query); // database 
+  $numRows = mysqli_num_rows($res);
+  $row = mysqli_fetch_assoc($res); 
+
+  $fName = $row['fname'];
+  $lName = $row['lname'];
     if(isset($_POST['change']))
     {
-      $id = $_SESSION['login_email'];
-    $query = "select * from users where id=$id ";
-    $res = mysqli_query($con,$query); // database 
-    $numRows = mysqli_num_rows($res);
-    $row = mysqli_fetch_assoc($res); 
+     
+  
     $password = $_POST['currentPwd'];
     $newPwd = $_POST['newPwd'];
     $conPwd = $_POST['conPwd'];

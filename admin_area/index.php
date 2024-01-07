@@ -5,7 +5,7 @@ require('header.php')
         <div class="container">
         <!--second child-->
         <div class="bg-light">
-            <h3 class="text-center p-2">Manage Details</h3>
+            <h3 class="text-center p-2">Admin Area</h3>
         </div>
         <!--third child-->
         <div class="row">
