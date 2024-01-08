@@ -21,7 +21,7 @@ header('Location: post-job.php?add=true');
 }
 
 ?>
-<div class="container">
+<div class="container mb-5">
         <!--second child-->
         <div class="bg-light">
             <h3 class="text-center p-2">Post Job</h3>
@@ -58,6 +58,7 @@ header('Location: post-job.php?add=true');
   <button type="submit" class="btn btn-primary my-3">Submit</button>
 </form>
             </div>
+        </div>
         </div>
 
 

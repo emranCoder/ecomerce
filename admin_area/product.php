@@ -112,6 +112,7 @@ if(intval($offerRate)>0)
 ?>
 </div>
 </div>
+</div>
 
 
 <?php

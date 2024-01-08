@@ -2,7 +2,7 @@
 
 <!--last child-->
 
-<footer class="bg-light p-6 footer mx-auto mt-5 mb-0 pb-0 ">
+<footer class="bg-light p-3 m-0 h-100 text-white footer mx-auto mt-5 mb-0 bg-dark w-full">
 <h5 class="text-center">Created by</h5>
 <h6 class="text-center">Banglar_Rong_2.0</h6>
 <p class="text-center">Thanks for being with us.Dress Yourself in Banglar Rong</p>

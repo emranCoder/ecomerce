@@ -52,13 +52,13 @@ else{
 
     
 </head>
-<body>
+<body class="bg-dark">
      <!--navbar-->
      <div class="container-fluid p-0 pb-5">
   
   <div class="container mt-5">
         <!--third child-->
-        <div class="bg-light my-4">
+        <div class="text-light my-4">
         <h3 class="text-center">Banglar_Rong_2.0</h3>
         <p class="text-center">Dress and saree Yourself in Brand</p>
     </div>
@@ -67,7 +67,7 @@ else{
     <div class="col-sm-4">
         </div>
         <div class="col-sm-4">
-          <div class="login_form mt-5 p-4 shadow rounded border text-center">
+          <div class="login_form mt-5 p-4 shadow rounded border text-center bg-warning">
             <?php
             if(isset($_GET['loginerror']))
             {
@@ -75,7 +75,7 @@ else{
             }
             if(!empty($loginerror))
             {
-              echo '<p class="errmsg text-danger ">Invalid login credentials, please try again...</p>';
+              echo '<p class="text-danger bg-light rounded ">Invalid login credentials, please try again...</p>';
             }
             ?>
         <form action="login.php" method="POST">

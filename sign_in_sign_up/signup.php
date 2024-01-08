@@ -107,11 +107,10 @@ $_password_pattern = "/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]
 
     if(!isset($error))
     {
-        $date=date('d-m-y');
         $options=array("cost"=>4);
         $password=password_hash($password,PASSWORD_BCRYPT,$options);
 
-        $insertQuery = "INSERT into `users`(`fname`, `lname`, `username`, `email`, `password`, `date`) values('$fname','$lname','$username','$email','$password','$date')";
+        $insertQuery = "INSERT into `users`(`fname`, `lname`, `username`, `email`, `password`) values('$fname','$lname','$username','$email','$password')";
         $result = mysqli_query($dbConnect, $insertQuery);
 
         if($result)

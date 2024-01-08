@@ -44,6 +44,7 @@ while ($row = mysqli_fetch_assoc($result_query)) {
 </table>
 
 </div>
+</div>
 
 <?php
 require('footer.php')

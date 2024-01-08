@@ -2,18 +2,19 @@
 require('header.php');
 
 ?>
-        <div class="container">
+        <div class="container mb-5">
         <!--second child-->
         <div class="bg-light">
-            <h3 class="text-center p-2">Admin Area</h3>
+            <h3 class="text-center p-2 fs-1 text-uppercase text-secondary">Admin Area</h3>
         </div>
         <!--third child-->
         <div class="row">
             <div class="col-md-12 p-1 d-flex align-items-center">
-                <div class="me-5">
+                <div class="me-5 text-center">
                     <a href="#"><img src="../images/admin.png" alt="" class="admin_image"></a>
                     <p class="text-center">Banglar_Rong_2.0</p>
                     <button class="my-3 btn btn-danger w-100"><a href="destroySession.php?true=tt" class="nav-link text-light my-1">Log Out</a></button>
+                    <a href="change-pwd.php?true=tt" class="text-dark">Change Password</a>
                 </div>
                 <div class="row gap-1 ml-5">
                 <button class="my-3 btn btn-primary col-md-2"><a href="all-orders.php" class="nav-link text-light  my-1">All orders</a></button>
@@ -29,6 +30,7 @@ require('header.php');
                     <button class="my-3 btn btn-primary col-md-2"><a href="index.php?insert_brands" class="nav-link text-light my-1">Insert Brands</a></button>
                     <button class="my-3 btn btn-primary col-md-2" ><a href="" class="nav-link text-light my-1">View Brands</a></button>
                     <button class="my-3 btn btn-primary col-md-2"> <a href="post-job.php" class="nav-link text-light my-1">Post Job</a></button>  
+                    <button class="my-3 btn btn-dark col-md-2"> <a href="users.php" class="nav-link text-light my-1">Users</a></button>  
                 </div>
             </div>
         </div>
@@ -42,6 +44,7 @@ require('header.php');
                 include('insert_brands.php');
             }
             ?>
+    </div>
     </div>
 
     <?php

@@ -57,7 +57,7 @@ echo  "<img src='./admin_area/product_images/$product_image1' class='card-img-to
   <p class='card-text text-danger fs-5 fw-bold  mt-0 '>Price: $product_price
   <div class='d-flex justify-content-sm-evenly'>
   <a  name='add_to_cart mr-2' onclick='addCart($product_id )' class='btn btn-warning '>Add to cart</a>
-  <a href='#' class='btn btn-dark'>view more</a>
+  <a href='product.php?id=$product_id' class='btn btn-dark'>view more</a>
   </div>
 </div>
 </div>
@@ -122,7 +122,7 @@ while ($row = mysqli_fetch_assoc($result_query)) {
   $timtestemp = $row['timtestemp'];
   $timestamp = date("d/m/y",strtotime($timtestemp));
   $text = limit_words($jobDesc,100);
-  echo "<div class='card border-light shadow'>
+  echo "<div class='card shadow border'>
   <div class='card-header'>
   $jobTitle
   </div>
@@ -216,10 +216,16 @@ while ($row = mysqli_fetch_assoc($result_query)) {
 function orderHistory($id){
 
   global $con;
-  //$select_query = "Select * from `orders` WHERE userID=$id";
   $select_query = "SELECT * FROM orders CROSS JOIN products WHERE orders.userID=$id AND orders.productID=products.product_id";
-$result_query = mysqli_query($con, $select_query);
-while ($row = mysqli_fetch_assoc($result_query)) {
+  $result_query = mysqli_query($con, $select_query);
+  $no = 1;
+  if(mysqli_num_rows($result_query))
+  {
+
+  while ($row = mysqli_fetch_assoc($result_query)) {
+
+
+
   $productID = $row['productID'];
   $order_id = $row['OrderID'];
   $status = $row['orderStatus'];
@@ -235,26 +241,33 @@ while ($row = mysqli_fetch_assoc($result_query)) {
   $category_id = $row['category_id'];
   $brand_id = $row['brand_id'];
   $order_price = $row['order_price'];
+  $delibariedDate = $row['delibariedDate'];
   $timestamp = date("d/m/y",strtotime($timestamp));
+  
+  $dateDelivery = date("d/m/y",strtotime($delibariedDate));
 
-  echo "<div class='col-md-2 justify-item-center'>
-        <div class='card'>
-        <span class='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>
-        $quantity
-    <span class='visually-hidden'>unread messages</span>
-  </span>
+  echo "<tr class='product-$order_id'>
+  <th scope='row'>".$no++."</th>
+  <td><img class='rounded ' width='50px' src='admin_area/product_images/$product_image1' alt='$product_title'/></td>
+  <td><a href='product.php?id=$product_id'>$product_title</a></td>
+  <td >$order_price</td>
+  <td >$timestamp</td>
+  <td >";
+ if( $delibariedDate)
+ {
+    echo  "<a class='btn btn-success'>$dateDelivery</a>";
+ }else
+ {
+  echo  "<a class='btn btn-danger'>Processing...</a>";
+ }
+  echo "</td>
+</tr>";
 
-                 <img src='./admin_area/product_images/$product_image1' class='card-img-top' alt='$product_title'>
-               <div class='card-body'>
-                 <h5 class='card-title text-center'>$product_title</h5>
-                   <p class='card-text text-danger fs-5 fw-bold mt-0'>Price: $order_price $</p>
-                 ";
-                  if($status){echo "<a class='btn btn-success d-block'>Delivered</a>";}else{echo "<a class='btn btn-danger d-block'>Procession</a>";}
-                  echo "
-               </div>
-               <p class='text-center text-secondary'>OD: $timestamp</p>
-     </div>
-     </div>";
+}
+
+}else
+{
+  echo "<tr><td class='text-center text-danger' colspan='6'>No Data Found</td></tr>";
 }
 }
 

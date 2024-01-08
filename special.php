@@ -2,7 +2,7 @@
 require('navbar.php');
 
 ?>
-<div class="container overflow-scroll">
+<div class="container overflow-scroll mb-5">
 
 
     <!--fourth child-->
@@ -19,6 +19,9 @@ specialOffers();
 </div>
 <!--colomn end-->
 </div>
+</div>
+</div>
+
 
 
 

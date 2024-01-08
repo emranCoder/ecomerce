@@ -25,6 +25,16 @@ if(!(isset($_SESSION["admin_id"]) && isset($_SESSION["admin_name"])))
     
     <!--CSS file-->
     <link rel="stylesheet" href="../style.css">
+    <style>
+        body {
+  min-height: 100vh  !important;
+  display: flex  !important;
+  flex-direction: column  !important;
+}
+table{
+    margin-bottom: 100px !important;
+}
+    </style>
 </head>
         <!--first child-->
         <nav class="navbar navbar-expand-lg navbar-light bg-info mb-5">

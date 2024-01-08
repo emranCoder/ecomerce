@@ -1,15 +1,15 @@
 <?php
-require('navbar.php');
-if(isset($_SESSION['login_email']))
+require('header.php');
+if(isset($_SESSION['admin_id']))
 {
-  $id = $_SESSION['login_email'];
-  $query = "select * from users where id=$id ";
+  $id = $_SESSION['admin_id'];
+  $query = "SELECT * FROM admin WHERE `admin_id`=$id ";
   $res = mysqli_query($con,$query); // database 
   $numRows = mysqli_num_rows($res);
   $row = mysqli_fetch_assoc($res); 
 
-  $fName = $row['fname'];
-  $lName = $row['lname'];
+  $fName = $row['fName'];
+  $lName = $row['lName'];
     if(isset($_POST['change']))
     {
      
@@ -25,11 +25,11 @@ if(isset($_SESSION['login_email']))
         $options=array("cost"=>4);
           $password=password_hash($conPwd,PASSWORD_BCRYPT,$options);
   
-          $result = mysqli_query($con,"UPDATE `users`  SET `password`='$password' WHERE id=$id");
+          $result = mysqli_query($con,"UPDATE `admin`  SET `password`='$password' WHERE `admin_id`=$id");
   
           if($result)
           {  
-            header('Location: session/destroySession.php?true=tt');
+            header('Location: destroySession.php?true=tt');
            }
       }else
       {
@@ -52,8 +52,8 @@ if(isset($_SESSION['login_email']))
         <div class="row my-2">
             <div class="col-md-3 p-1 d-flex align-items-center">
                 <div class="p-3 me-5">
-                    <a href="#"><img src="images/admin.png" alt="" class="admin_image"></a>
-                    <p class="text-center my-2 fs-3 text-secondary"><?php echo $fName." ".$lName;?></p>
+                    <a href="#"><img src="../images/admin.png" alt="" class="admin_image"></a>
+                    <p class="text-center my-2 fs-5 text-secondary text-uppercase"><?php echo $fName." ".$lName;?></p>
                 </div>
             </div>
             <div class="col-md-9">

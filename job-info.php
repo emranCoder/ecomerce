@@ -22,8 +22,8 @@ require('navbar.php');
 </div>
 <!--colomn end-->
 </div>
-
-
+</div>
+</div>
 
 
 <?php

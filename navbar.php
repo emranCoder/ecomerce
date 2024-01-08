@@ -10,7 +10,7 @@ include('functions/common_function.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banglar_Rong</title>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!--bootstrape CSS ling-->
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -42,7 +42,7 @@ include('functions/common_function.php');
           <a class="nav-link" href="product_design/index.php">Products</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="special.php">Spacial Offers</a>
+          <a class="nav-link" href="special.php">Spacial Offers </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="all-jobs.php">Career</a>

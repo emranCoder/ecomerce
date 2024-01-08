@@ -9,8 +9,7 @@ require('navbar.php');
 
 
 <div class="container">
-<h1 class="text-center">Product <?php if(!(isset($_GET['view']) && $_GET['view']=='true'))
-    {echo "Edit";}else{echo "View";}?></h1>
+<h1 class="text-center">Product Details</h1>
 <div class="row">
 <?php 
 if(isset($_GET['id'])){
@@ -33,7 +32,7 @@ while ($row = mysqli_fetch_assoc($result_query)) {
     $affterOffer =$product_price-(($product_price*$offerRate)/100);;
 
     ?>
-<div class="card w-75 m-auto my-5">
+<div class="card w-75 m-auto my-5 shadow border">
     <div class="row">
 <div class="col-md-4">
 <img src="admin_area/product_images/<?php echo $product_image1;?>" class="rounded border-0 img-thumbnail" alt="...">

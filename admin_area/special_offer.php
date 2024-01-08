@@ -54,6 +54,8 @@ while ($row = mysqli_fetch_assoc($result_query)) {
   </tbody>
 </table>
 </div>
+</div>
+
 
 
 <?php
