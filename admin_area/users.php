@@ -1,11 +1,43 @@
 <?php
-require('header.php')
+require('header.php');
+
+
+
+if(isset($_GET['username']))
+{
+    $username=$_GET['username'];
+    $deleteQuery = "DELETE FROM `users` WHERE `email`='$username'";
+    $res = mysqli_query($con,$deleteQuery);
+    if( $res)
+    {
+
+header('Location: users.php?true='.$username);
+    }else
+    {
+      header('Location: users.php?false');
+    }
+    
+}
+
+
 
 ?>
 
 
 <body class="bg-light">
+
+
     <div class="container mt-3">
+    <?php 
+if(isset($_GET['true'])){
+  ?>
+  <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">
+ User <span class='fw-bold'><?php echo $_GET['true'];?></span> has been delete.
+ <a href='users.php' type="button" class="btn-close" ></a>
+</div>
+<?php 
+}
+?>
 
         <h1 class="text-center my-5">Non Verified Users</h1>
 
@@ -46,7 +78,7 @@ while ($row = mysqli_fetch_assoc($result_query)) {
       <td><?php echo $email;?></td>
 
       <td ><?php echo $timestamp;?></td>
-      <td class='d-flex justify-content-around'><a href="../sign_in_sign_up/delete-user.php?username=<?php echo $id?>;"><i class="bi bi-trash3-fill text-danger"></i></a></td>
+      <td class='d-flex justify-content-around'><a href="users.php?username=<?php echo $email?>"><i class="bi bi-trash3-fill text-danger"></i></a></td>
     </tr>
     <?php
 }?>
