@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2024 at 02:15 PM
+-- Generation Time: Jan 08, 2024 at 01:07 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,7 +42,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `fName`, `lName`, `email`, `username`, `password`, `timestamp`) VALUES
-(1, 'admin', 'core', 'admin@mail.com', 'admin', '$2y$04$jeDR6y5.eKMWUc9iuv3W2eUL0ULVQQ.wL48KQlM.qKFgNAxXgeiWy', '2024-01-07 13:00:31');
+(1, 'admin', 'core', 'admin@mail.com', 'admin', '$2y$04$pT39sK4dsamQnZAkDdZIjuE8OF1NASk1ZZcgbbpY.V0JiesTA5hwS', '2024-01-07 13:00:31');
 
 -- --------------------------------------------------------
 
@@ -192,7 +192,7 @@ CREATE TABLE `users` (
   `password` varchar(150) DEFAULT NULL,
   `verify` tinyint(1) NOT NULL,
   `verify_code` text NOT NULL,
-  `date` date DEFAULT NULL,
+  `date` timestamp NULL DEFAULT current_timestamp(),
   `phone_no` text NOT NULL,
   `address` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -202,17 +202,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `fname`, `lname`, `username`, `email`, `password`, `verify`, `verify_code`, `date`, `phone_no`, `address`) VALUES
-(1, 'naeem', 'khan', 'naeemkhan75', 'naeemkhannak32@gmail.com', '$2y$04$qU7TdGqIcY/1o/n5unff8.lzMUwBY3w/eQBsz/dlcafNyTbi2zHKe', 0, '', '2022-06-23', '', ''),
-(2, 'alok kanti', 'Acharjye', 'alok75', 'acharjye@gmail.com', '$2y$04$Iu/.Ygdln21VScsm0uVg4.0cGMaEJyNtOWLBSQ5El1eni6ZwIWiSK', 0, '', '2023-07-23', '', ''),
-(3, 'naeem', 'khan', 'naeem', 'naeemkhan@gmail.com', '$2y$04$ajOgz1NjQqlJGO9.5heYgu/VfQvFk1.hTJjAEWYnas1QiDuOn.WSS', 0, '', '2023-07-23', '', ''),
-(4, 'naeem', 'khan', 'naeem105', 'nk@gmail.com', '$2y$04$Ty8FTLryzG6b98HauzDFGORQNT1fbiMCVRvPld/hhOyj8hRg3odUO', 0, '', '2003-08-23', '', ''),
-(5, 'akash', 'shaa', 'akash12', 'sa@gmail.com', '$2y$04$EJlnXUwrGETWc/8/h97J/OPcQl5ka0ob/cwObcbJR/k24YXPHWw/y', 0, '', '2005-08-23', '', ''),
-(6, 'aziz', 'islam', 'aziz12', 'aziz@gmail.com', '$2y$04$X33kFegNO7c14wTVNvy9L.zlZjQNiw8GNjKkMkvlEl1GZlPbxPAQK', 0, '', '2005-08-23', '', ''),
-(7, 'sadia', 'rashida', 'sadia12', 's@gmail.com', '$2y$04$lXQQkKPuQQ9wwBjTUfGWl.MhNHXnDOm1SrH.bM3p/dKLe7nUsP596', 0, '', '2006-08-23', '', ''),
-(8, 'leo', 'taha', 'taha10', 'taha@gmail.com', '$2y$04$f2L8p/jQsecdWEn1OhGbVOZBflDJAzhTIpNfoWtwh73CAXl8szXiC', 0, '', '2006-08-23', '', ''),
-(9, 'naeem', 'khannk', 'naeem123', 'naeem123@gmail', '$2y$04$.i3uR1uuzRtY/SuphUvLrujZp.r.cYgINxNymCemUNSa2Q4nC9zAW', 0, '', '2007-08-23', '', ''),
-(10, 'alok', 'naeem', 'alok111', 'alok111@gmai.com', '$2y$04$lP35wSo.r689TznU2XZqa.Qh6sXmtiZ0j1IEhvQyoKKODNMlNdOxO', 0, '', '2009-11-23', '', ''),
-(12, 'jhon', 'davide', 'jhon', 'emranalam645@gmail.com', '$2y$04$B2MTdFhVbse1.UP1DZCV.OmNO8Mkf3sLrxjats/YukkjfojOD21iK', 1, '711879', '2007-01-24', '', 'Sylhet Bangladesh');
+(1, 'naeem', 'khan', 'naeemkhan75', 'naeemkhannak32@gmail.com', '$2y$04$hfmE4JSO9M6a9GJuhrLCL.5Y5.7iTcrTqQIvTqixwe/QA0JCoTufu', 1, '', '2024-01-07 12:42:38', '', ''),
+(2, 'alok kanti', 'Acharjye', 'alok75', 'acharjye@gmail.com', '$2y$04$Iu/.Ygdln21VScsm0uVg4.0cGMaEJyNtOWLBSQ5El1eni6ZwIWiSK', 1, '', '2024-01-07 12:42:38', '', ''),
+(3, 'naeem', 'khan', 'naeem', 'naeemkhan@gmail.com', '$2y$04$ajOgz1NjQqlJGO9.5heYgu/VfQvFk1.hTJjAEWYnas1QiDuOn.WSS', 1, '', '2024-01-07 12:42:38', '', ''),
+(4, 'naeem', 'khan', 'naeem105', 'nk@gmail.com', '$2y$04$Ty8FTLryzG6b98HauzDFGORQNT1fbiMCVRvPld/hhOyj8hRg3odUO', 0, '', '2024-01-07 12:42:38', '', ''),
+(5, 'akash', 'shaa', 'akash12', 'sa@gmail.com', '$2y$04$EJlnXUwrGETWc/8/h97J/OPcQl5ka0ob/cwObcbJR/k24YXPHWw/y', 0, '', '2024-01-07 12:42:38', '', ''),
+(6, 'aziz', 'islam', 'aziz12', 'aziz@gmail.com', '$2y$04$X33kFegNO7c14wTVNvy9L.zlZjQNiw8GNjKkMkvlEl1GZlPbxPAQK', 0, '', '2024-01-07 12:42:38', '', ''),
+(7, 'sadia', 'rashida', 'sadia12', 's@gmail.com', '$2y$04$lXQQkKPuQQ9wwBjTUfGWl.MhNHXnDOm1SrH.bM3p/dKLe7nUsP596', 0, '', '2024-01-07 12:42:38', '', ''),
+(8, 'leo', 'taha', 'taha10', 'taha@gmail.com', '$2y$04$f2L8p/jQsecdWEn1OhGbVOZBflDJAzhTIpNfoWtwh73CAXl8szXiC', 0, '', '2024-01-07 12:42:38', '', ''),
+(9, 'naeem', 'khannk', 'naeem123', 'naeem123@gmail', '$2y$04$.i3uR1uuzRtY/SuphUvLrujZp.r.cYgINxNymCemUNSa2Q4nC9zAW', 0, '', '2024-01-07 12:42:38', '', ''),
+(10, 'alok', 'naeem', 'alok111', 'alok111@gmai.com', '$2y$04$lP35wSo.r689TznU2XZqa.Qh6sXmtiZ0j1IEhvQyoKKODNMlNdOxO', 0, '', '2024-01-07 12:42:38', '', ''),
+(12, 'jhon', 'davide', 'jhon', 'emranalam645@gmail.com', '$2y$04$R8UwHEbBpxOCOs/tfTbjE.rKeE6QvRLSarP0bMZSheu9N6Jo/Wl6m', 1, '711879', '2024-01-07 12:42:38', '', 'Sylhet Bangladesh');
 
 --
 -- Indexes for dumped tables
@@ -304,7 +304,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(120) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(120) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

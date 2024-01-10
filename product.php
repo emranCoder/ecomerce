@@ -9,7 +9,7 @@ require('navbar.php');
 
 
 <div class="container">
-<h1 class="text-center">Product Details</h1>
+<h1 class="text-center text-secondary">Product Details</h1>
 <div class="row">
 <?php 
 if(isset($_GET['id'])){
@@ -39,11 +39,29 @@ while ($row = mysqli_fetch_assoc($result_query)) {
 </div>
 <div class="col-md-8">
   <div class="card-body">
-    <h5 class="card-title"><?php echo $product_title;?></h5>
+    <h5 class="card-title fs-3 fw-bold"><?php echo $product_title;?></h5>
     <p class="card-text"><?php echo $product_description;?></p>
+    <?php
+    if( $offerRate>0)
+    {
+      ?>
+        
+  
     <p class='card-text text-danger fs-5  mt-0 '>Price: <span class='text-decoration-line-through text-secondary me-1 '><?php  echo $product_price ?></span> <span class='fw-bold'><?php  echo $affterOffer ?></span> 
-    <br>
-    <a name="" class="btn btn-primary my-3" href="session/cardSession.php?now=true&&id=<?php echo $product_id; ?>" role="button">Buy Now</a>
+    </p>
+    <?php
+  }else
+  {
+    ?>
+
+<p class='card-text text-danger fs-5  mt-0 '>Price:<span class='fw-bold'> <?php  echo $product_price ?></span> 
+    </p>
+
+
+       <?php
+  }
+  ?>
+    <a name="" class="btn btn-warning my-3" href="session/cardSession.php?now=true&&id=<?php echo $product_id; ?>" role="button">Buy Now</a>
   </div>
   </div>
   </div>
