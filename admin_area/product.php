@@ -32,7 +32,7 @@ if($result_query)
 
 
 
-<div class="container">
+<div class="container  mb-5 bg-light rounded-lg border border-rounded shadow py-5">
 <h1 class="text-center">Product <?php if(!(isset($_GET['view']) && $_GET['view']=='true'))
     {echo "Edit";}else{echo "View";}?></h1>
 <div class="row">

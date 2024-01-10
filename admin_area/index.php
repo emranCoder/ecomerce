@@ -2,7 +2,7 @@
 require('header.php');
 
 ?>
-        <div class="container mb-5">
+        <div class="container mb-5 p-5 pe-0  bg-light rounded-lg border border-rounded shadow">
         <!--second child-->
         <div class="bg-light">
             <h3 class="text-center p-2 fs-1 text-uppercase text-secondary">Admin Area</h3>

@@ -22,8 +22,7 @@ if(isset($_GET['id'])&& isset($_GET['status']) && $_GET['status']=='true')
 
 }
 ?>
-<body class="bg-light">
-    <div class="container-fluid mt-3">
+    <div class="container-fluid mt-3  mb-5 bg-light rounded-lg border border-rounded shadow">
 
         <h1 class="text-center my-5">Recent Orders</h1>
 

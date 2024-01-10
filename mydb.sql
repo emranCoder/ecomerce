@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 08, 2024 at 01:07 PM
+-- Generation Time: Jan 10, 2024 at 07:08 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -212,7 +212,7 @@ INSERT INTO `users` (`id`, `fname`, `lname`, `username`, `email`, `password`, `v
 (8, 'leo', 'taha', 'taha10', 'taha@gmail.com', '$2y$04$f2L8p/jQsecdWEn1OhGbVOZBflDJAzhTIpNfoWtwh73CAXl8szXiC', 0, '', '2024-01-07 12:42:38', '', ''),
 (9, 'naeem', 'khannk', 'naeem123', 'naeem123@gmail', '$2y$04$.i3uR1uuzRtY/SuphUvLrujZp.r.cYgINxNymCemUNSa2Q4nC9zAW', 0, '', '2024-01-07 12:42:38', '', ''),
 (10, 'alok', 'naeem', 'alok111', 'alok111@gmai.com', '$2y$04$lP35wSo.r689TznU2XZqa.Qh6sXmtiZ0j1IEhvQyoKKODNMlNdOxO', 0, '', '2024-01-07 12:42:38', '', ''),
-(12, 'jhon', 'davide', 'jhon', 'emranalam645@gmail.com', '$2y$04$R8UwHEbBpxOCOs/tfTbjE.rKeE6QvRLSarP0bMZSheu9N6Jo/Wl6m', 1, '711879', '2024-01-07 12:42:38', '', 'Sylhet Bangladesh');
+(12, 'jhon', 'davide', 'jhon', 'jhon@demo.com', '$2y$04$R8UwHEbBpxOCOs/tfTbjE.rKeE6QvRLSarP0bMZSheu9N6Jo/Wl6m', 1, '711879', '2024-01-07 12:42:38', '', 'Sylhet Bangladesh');
 
 --
 -- Indexes for dumped tables

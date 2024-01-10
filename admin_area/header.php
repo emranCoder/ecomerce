@@ -30,14 +30,18 @@ if(!(isset($_SESSION["admin_id"]) && isset($_SESSION["admin_name"])))
   min-height: 100vh  !important;
   display: flex  !important;
   flex-direction: column  !important;
+  background-color: #f0f0f0;
 }
 table{
     margin-bottom: 100px !important;
 }
+.border-rounded{
+    border-radius: 10px;
+}
     </style>
 </head>
         <!--first child-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-info mb-5">
+        <nav class="navbar navbar-expand-lg navbar-light bg-warning border-bottom shadow  mb-5">
             <div class="container-fluid">
         <img  width='50px' src="../images/logo.jpg" alt="" class="logo">
                 <nav class="navbar navbar-expand-lg">

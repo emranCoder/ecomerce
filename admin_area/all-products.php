@@ -3,13 +3,11 @@ require('header.php')
 
 ?>
 
-
-<body class="bg-light">
-    <div class="container mt-3">
+    <div class="container mt-3 py-5 mb-5 bg-light rounded-lg border border-rounded shadow">
 
         <h1 class="text-center">All Products</h1>
 
-        <table class="table table-striped">
+        <table class="table table-striped border">
   <thead>
     <tr>
       <th scope="col">No</th>

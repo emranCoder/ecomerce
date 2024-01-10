@@ -24,10 +24,7 @@ header('Location: users.php?true='.$username);
 ?>
 
 
-<body class="bg-light">
-
-
-    <div class="container mt-3">
+    <div class="container mt-3  mb-5 bg-light rounded-lg border border-rounded shadow">
     <?php 
 if(isset($_GET['true'])){
   ?>

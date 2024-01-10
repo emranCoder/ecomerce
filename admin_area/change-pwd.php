@@ -43,7 +43,7 @@ if(isset($_SESSION['admin_id']))
    
 
 ?>
-   <div class="container">
+   <div class="container p-5 mb-5 bg-light rounded-lg border border-rounded shadow">
         <!--second child-->
         <div class="bg-light">
             <h3 class="text-center p-2">Change Password</h3>
@@ -62,7 +62,7 @@ if(isset($_SESSION['admin_id']))
 <div class="row my-2">
                     <div class="col-md-4">  <div class="mb-3">
     <label for="onkeyPress" class="form-label">Current Password</label>
-    <input type="password" name='currentPwd' class="form-control" id="onkeyPress" >
+    <input placeholder="Type here....." type="password" name='currentPwd' class="form-control" id="onkeyPress" >
     <?php if(isset($_GET['current']) && $_GET['current']=='false'){
       echo " <div id='emailHelp' class='form-text text-danger'>Password Incorrect.</div>";
     }?>
@@ -71,13 +71,13 @@ if(isset($_SESSION['admin_id']))
     <div class="col-md-4"> 
         <div class="mb-3">
     <label for="onkeyPress"  class="form-label">New Password</label>
-    <input type="password"  name='newPwd'class="form-control" id="onkeyPress" required>
+    <input placeholder="Type here....." type="password"  name='newPwd'class="form-control" id="onkeyPress" required>
   </div>
 </div>
 <div class="col-md-4"> 
         <div class="mb-3">
     <label for="onkeyPress" class="form-label">Confirm Password</label>
-    <input type="password" class="form-control" name='conPwd' id="onkeyPress" required>
+    <input placeholder="Type here....." type="password" class="form-control" name='conPwd' id="onkeyPress" required>
     <?php if(isset($_GET['con']) && $_GET['con']=='false'){
       echo " <div id='emailHelp' class='form-text text-danger'>Confirm Password not matched.</div>";
     }?>
